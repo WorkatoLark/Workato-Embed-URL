@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      window.addEventListener('message', receiveMessage);
+      function receiveMessage(event) {
+        var data = JSON.parse(event.data);
+
+        switch (data.type) {
+          case 'heightChange':
+            document.getElementById('workatoId').style.height = data.payload.height + 'px';
+            break;
+          case 'connectionStatusChange':
+            var message = data.error || (data.payload.connected ? 'Connected' : 'Disconnected');
+            document.getElementById('statusId').innerText = message;
+            break;
+          case 'error':
+            console.log(data.payload.message);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h4>Status: <span id="statusId"></span></h4>
+    <iframe id="workatoId" src="https://app.workato.com/direct_link/embedded/connections/13142699?workato_dl_token=eyJhbGciOiAiUlMyNTYiLCAidHlwIjogIkpXVCJ9.eyJzdWIiOiAiYzQwZTFkYjkwZGQwZjkwYzAyMzJjZTk5NzJlNmVkMTM3MzQ4YzgwYjcxNzlmYjhlNDAyNWVhMjFkNjJhNjU4OTozMzUzNzE4IiwgImlhdCI6IDE3MDI1OTU4MDksICJqdGkiOiAiNDI5OTgyMTQtNGY2YS00Njk5LWJhN2YtNjdhNmI1ZGRmNzhjIiwgIm9yaWdpbiI6ICJodHRwOi8vMTI3LjAuMC4xIn0.CCGvpIMItAL-274kWG-ul76V2-QoHuMSvzJiB1M2exg" style="width: 1000px; height: 1500px; border: 0"></iframe>
+  </body>
+</html>

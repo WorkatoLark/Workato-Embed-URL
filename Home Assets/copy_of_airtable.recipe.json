@@ -1,0 +1,105 @@
+{
+  "name": "Copy of Airtable",
+  "description": "",
+  "version": 5,
+  "private": true,
+  "concurrency": 1,
+  "code": {
+    "number": 0,
+    "provider": "airtable",
+    "name": "new_record",
+    "as": "2bf90d9c",
+    "title": null,
+    "description": null,
+    "keyword": "trigger",
+    "dynamicPickListSelection": {
+      "base_id": "Untitled Base",
+      "table_id": "Table 1"
+    },
+    "toggleCfg": {
+      "base_id": true,
+      "table_id": true
+    },
+    "input": {
+      "base_id": "appU3hyrKkxGvbUN8",
+      "table_id": "tblbtwY2SBSys1272"
+    },
+    "extended_output_schema": [
+      {
+        "control_type": "text",
+        "label": "ID",
+        "name": "id",
+        "optional": true,
+        "type": "string"
+      },
+      {
+        "label": "Fields",
+        "name": "fields",
+        "optional": true,
+        "properties": [
+          {
+            "control_type": "text",
+            "label": "Name",
+            "sticky": true,
+            "optional": true,
+            "type": "string",
+            "name": "fldh7xde24V8TXqfo"
+          }
+        ],
+        "type": "object"
+      },
+      {
+        "control_type": "date_time",
+        "label": "Created time",
+        "name": "createdTime",
+        "optional": true,
+        "parse_output": "date_time_conversion",
+        "type": "date_time",
+        "render_input": "date_time_conversion"
+      }
+    ],
+    "block": [
+      {
+        "number": 1,
+        "provider": "lark_boe_development_connector_2960173_1708928532",
+        "name": "send_message_card",
+        "as": "bd191fa3",
+        "keyword": "action",
+        "dynamicPickListSelection": {
+          "lk_wkt_env": "BOE",
+          "lk_wkt_trigger_app": "gitHub",
+          "lk_wkt_send_as_bot": "true"
+        },
+        "input": {
+          "lk_wkt_title": "title #{_dp('{\"pill_type\":\"output\",\"provider\":\"airtable\",\"line\":\"2bf90d9c\",\"path\":[\"id\"]}')}#{_dp('{\"pill_type\":\"output\",\"provider\":\"airtable\",\"line\":\"2bf90d9c\",\"path\":[\"fields\",\"fldh7xde24V8TXqfo\"]}')}",
+          "lk_wkt_link_urls": "[{\"title\": \"🔗 Link 1\", \"url\": \"https://test1.com\"}, {\"title\": \"🔗 Link 2\", \"url\": \"https://test2.com\"}]",
+          "lk_wkt_actions": "[{\"title\": \"Btn1\", \"url\": \"https://test1.com\"}, {\"title\": \"Btn2\", \"url\": \"https://test2.com\"}]",
+          "lk_wkt_image_urls": "[]",
+          "lk_wkt_env": "https://bytesec.byteintlapi.com",
+          "lk_wkt_trigger_app": "github",
+          "lk_wkt_send_as_bot": "true",
+          "lk_wkt_receiver_id": "oc_6ad141c8415de20088096042f8b55a60",
+          "lk_wkt_content": "[Repo](https://github.com)",
+          "lk_wkt_recipe_id": "45352960"
+        },
+        "uuid": "fc54f502-1c04-4794-83bd-1d18398228d0"
+      }
+    ],
+    "uuid": "78304eec-e43a-4860-b105-4997f3b00858",
+    "unfinished": false
+  },
+  "config": [
+    {
+      "keyword": "application",
+      "provider": "airtable",
+      "skip_validation": false,
+      "account_id": 13634844
+    },
+    {
+      "keyword": "application",
+      "provider": "lark_boe_development_connector_2960173_1708928532",
+      "skip_validation": false,
+      "account_id": 13636941
+    }
+  ]
+}

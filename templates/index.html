@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workflow Templates</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="card">
+    <div class="card-header">
+        <div class="card-icon">
+            <!-- Add your icons here -->
+        </div>
+        <h3>Show Account details in Salesforce</h3>
+        <button onclick="openNewWorkflow()">Add Workflow</button>
+
+<script>
+function openNewWorkflow() {
+  // This will open a new tab with the URL returned from the /add_workflow route
+  window.open('/add_workflow', '_blank');
+}
+</script>
+    </div>
+    <div class="card-footer">
+        <span class="usage-info">8405 users</span>
+        <span class="provider-info">By WorkatoApps</span>
+    </div>
+</div>
+
+<h2>My Workflows</h2>
+<div class="workflows">
+    {% for workflow in my_workflows %}
+    <div class="workflow">
+        <a href="/workflow/{{ loop.index0 }}">{{ workflow.name }}</a>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
